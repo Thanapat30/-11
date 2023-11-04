@@ -5,7 +5,8 @@ import aiohttp
 import aiofiles
 from PIL import Image
 
-unsplash_search_url = "https://source.unsplash.com/random/300x300"
+unsplash_search_url = "https://source.unsplash.com/random/300*300"
+
 
 async def download_image_async(session: aiohttp.ClientSession, num: int = 1):
     print(f"{time.ctime()} - Start download image {num}")
@@ -16,8 +17,9 @@ async def download_image_async(session: aiohttp.ClientSession, num: int = 1):
             print(f"{time.ctime()} - Image {num} shape: {img.size}")
 
     async with aiofiles.open(f'./filename{num}.jpg', "wb") as new_file:
-        print(f"{time.ctime()} - Writing to 'filename{num}.jpg'...")
+        print(f"{time.ctime()} - Writtingto 'filename{num}.jpg'...")
         await new_file.write(image_buffer)
+
 
 async def download_images_async(n: int = 10):
     async with aiohttp.ClientSession() as session:
@@ -25,8 +27,8 @@ async def download_images_async(n: int = 10):
         _ = await asyncio.gather(*tasks)
     return
 
-if __name__ == "_main_":
+if __name__ == " main":
     tick = time.perf_counter()
-    asyncio.run(download_images_async())
+    asyncio. run(download_images_async())
     tock = time.perf_counter()
-    print(f"{time.ctime()} - elapsed: {tock-tick:.2f} seconds")
+    print(f"(time.ctime()] - elapsed: (tock-tick:.2f) seconds")
